@@ -1,0 +1,153 @@
+<div class="row mb-2">
+    <div class="col-lg-12">
+        <div class="border rounded-0 px-2 pt-2">
+            <div class="row">
+                <div class="col-lg-12 mb-2 pt-1 pb-1 px-1 text-center">
+                    <h6 class="fs-6">CADASTRAR NOVO FLUXO DE CAIXA</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="input-group mb-2">
+                        <label class="input-group-text rounded-0"><i class="bi bi-calendar-event"></i></label>
+                        <input class="form-control rounded-0" id="TxDia" maxlength="2" type="number" min="1" max="31" placeholder="Dia">
+                        <select class="form-select rounded-0" id="TxMes">
+                            <option value="1" selected>Janeiro</option>
+                            <option value="2">Fevereiro</option>
+                            <option value="3">Março</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Maio</option>
+                            <option value="6">Junho</option>
+                            <option value="7">Julho</option>
+                            <option value="8">Agosto</option>
+                            <option value="9">Setembro</option>
+                            <option value="10">Outubro</option>
+                            <option value="11">Novembro</option>
+                            <option value="12">Dezembro</option>
+                        </select>
+                        <input class="form-control rounded-0" id="TxAno" maxlength="4" type="number" min="2000" max="2021" placeholder="Ano">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="input-group mb-2">
+                        <label class="input-group-text rounded-0"><i class="bi bi-card-text"></i></label>
+                        <input class="form-control rounded-0" id="TxDescricao" maxlength="40" type="text" placeholder="Descrição">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="input-group mb-2">
+                        <label class="input-group-text rounded-0"><i class="bi bi-piggy-bank"></i></label>
+                        <select class="form-select rounded-0" id="TxTipo">
+                            <option value="0" selected>Crédito</option>
+                            <option value="1">Débito</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-group mb-2">
+                        <label class="input-group-text rounded-0"><i class="bi bi-currency-dollar"></i></label>
+                        <input class="form-control rounded-0" id="TxValor" maxlength="40" type="text" placeholder="R$ 0,00">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex row flex-row-reverse">
+                <div class="col-lg-4">
+                    <div class="btn-group w-100 rounded-0 mb-2" role="group">
+                        <button type="button" class="btn btn-success rounded-0" onclick="caixa.cadastrarCaixa();"><i class="bi bi-check-lg pe-2"></i>Salvar</button>
+                        <button type="button" class="btn btn-danger rounded-0" onclick="caixa.limparCampos();"><i class="bi bi-x-lg pe-2"></i>Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col-lg-12">
+        <div class="border rounded-0 px-2 pt-2">
+            <div class="row mb-2 text-center">
+                <div class="col-lg-12">
+                    <h6 class="fs-6">FILTRO DE BUSCA</h6>
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-lg-5">
+                    <div class="input-group mb-2">
+                        <label class="input-group-text rounded-0" style="width: 105px;">Data inicial</label>
+                        <input class="form-control rounded-0" id="FiDia" maxlength="2" type="number" min="1" max="31" placeholder="Dia">
+                        <select class="form-select rounded-0" id="FiMes">
+                            <option value="1" selected>Janeiro</option>
+                            <option value="2">Fevereiro</option>
+                            <option value="3">Março</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Maio</option>
+                            <option value="6">Junho</option>
+                            <option value="7">Julho</option>
+                            <option value="8">Agosto</option>
+                            <option value="9">Setembro</option>
+                            <option value="10">Outubro</option>
+                            <option value="11">Novembro</option>
+                            <option value="12">Dezembro</option>
+                        </select>
+                        <input class="form-control rounded-0" id="FiAno" maxlength="4" type="number" min="2000" max="2021" placeholder="Ano">
+                    </div>
+                </div>    
+                <div class="col-lg-5">
+                    <div class="input-group mb-2">
+                        <label class="input-group-text rounded-0" style="width: 105px;">Data final</label>
+                        <input class="form-control rounded-0" id="FnDia" maxlength="2" type="number" min="1" max="31" placeholder="Dia">
+                        <select class="form-select rounded-0" id="FnMes">
+                            <option value="1" selected>Janeiro</option>
+                            <option value="2">Fevereiro</option>
+                            <option value="3">Março</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Maio</option>
+                            <option value="6">Junho</option>
+                            <option value="7">Julho</option>
+                            <option value="8">Agosto</option>
+                            <option value="9">Setembro</option>
+                            <option value="10">Outubro</option>
+                            <option value="11">Novembro</option>
+                            <option value="12">Dezembro</option>
+                        </select>
+                        <input class="form-control rounded-0" id="FnAno" maxlength="4" type="number" min="2000" max="2021" placeholder="Ano">
+                    </div>
+                </div>  
+                <div class="col-lg-2">
+                    <button type="button" class="btn btn-primary rounded-0 w-100" onclick="caixa.SetarDados();"><i class="bi bi-search pe-2"></i>Pesquisar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table align-middle table-sm" style="font-size: 62,5%">
+            <tbody id="dadosCaixa">
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <div class="btn-group w-100 rounded-0 mb-2" role="group">
+                    <button type="button" class="btn rounded-0 btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn rounded-0 btn-primary" data-bs-dismiss="modal">Save changes</button>
+                </div>
+            </div>
+         </div>
+    </div>
+</div>
